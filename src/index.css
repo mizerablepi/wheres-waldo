@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  background-color: #f6f6f6;
-} */
+#hero {
+  background-image: url("./assets/WaldoBanner.jpg");
+}
 
 header {
   background-color: #f6f6f6;
