@@ -14,6 +14,14 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+      {
+        path: "play",
+        element: <h1>YOU WANNA PLAY LETS PLAY</h1>,
+      },
+      {
+        path: "leaderboard",
+        element: <h1>Last player standing</h1>,
+      },
     ],
     // errorElement: <Errorpage/>
   },
