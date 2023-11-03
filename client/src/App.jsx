@@ -1,4 +1,4 @@
-import logo from "./assets/waldo_face.jpg";
+import logo from "./assets/waldo_face.png";
 import { Outlet, Link, useLocation } from "react-router-dom";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <>
       <header className="flex items-center justify-between shadow-md p-2 ">
         <div className="flex items-center">
-          <img src={logo} alt="logo image" className="h-16" />
+          <img src={logo} alt="logo image" className="h-16 relative -top-2" />
           <h1 className="text-2xl mr-4 pr-4 border-r-2">
             <span className="text-blue-600 font-bold">Where&apos;s </span>
             <span className="text-red-600 font-bold"> Waldo?</span>
@@ -40,10 +40,12 @@ function App() {
             </button>
           </Link>
         </div>
-        <div className="">
-          <button className="px-2 py-1 m-1 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">
-            Log In
-          </button>
+        <div>
+          <Link to={"login"}>
+            <button className="px-2 py-1 m-1 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">
+              Log In
+            </button>
+          </Link>
         </div>
       </header>
       <Outlet />
