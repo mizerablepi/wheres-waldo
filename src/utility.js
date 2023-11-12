@@ -35,3 +35,45 @@ export async function getLeaderboard() {
     }, 1000);
   });
 }
+
+const chLst = ["me", "me", "me"];
+
+export async function checkCoords(coords, choice) {
+  const ans = { xmin: 70, xmax: 100, ymin: 20, ymax: 90 };
+  let result;
+
+  if (
+    choice == "me" &&
+    coords.x + 28 > ans.xmin &&
+    coords.x - 28 < ans.xmax &&
+    coords.y + 28 > ans.ymin &&
+    coords.y - 28 < ans.ymax
+  ) {
+    result = true;
+    chLst.splice(chLst.indexOf("me"), 1);
+    console.log(chLst);
+    if (chLst.length === 0) {
+      return "fin";
+    }
+  } else {
+    result = false;
+  }
+
+  return Promise.resolve(result);
+
+  // return new Promise((res) => {
+  //   return setTimeout(() => {
+  //     res(result);
+  //   }, 10);
+  // });
+}
+
+export async function getCharacterList() {
+  const list = ["me", "myself", "I"];
+  return Promise.resolve(list);
+}
+
+export function sendStartSignal() {
+  console.log("SIGNAL SENT");
+  return null;
+}
