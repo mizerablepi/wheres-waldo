@@ -40,13 +40,13 @@ export default function Home() {
           How to Play
         </h3>
         <hr />
+        <ul className="text-start list-disc ml-10">
+          <li>Search through the image to find waldo and friends</li>
+          <li>Click on them when you find them </li>
+          <li>Select the person you found</li>
+          <li>find all the characters</li>
+        </ul>
         <p className="p-4 w-[50rem] text-center m-auto">
-          <ul className="text-start list-disc ml-10">
-            <li>Search through the image to find waldo and friends</li>
-            <li>Click on them when you find them </li>
-            <li>Select the person you found</li>
-            <li>find all the characters</li>
-          </ul>
           <br />
           If you select the right person they will be marked, else you will be
           notified that your selection was wrong.
