@@ -8,6 +8,7 @@ import Game from "./Game.jsx";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import Leaderboard from "./Leaderboard.jsx";
+import Map from "./Map.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/play/:name",
+        element: <Map />,
       },
       {
         path: "play",
