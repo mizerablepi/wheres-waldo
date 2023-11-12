@@ -6,6 +6,10 @@
   background-image: url("./assets/WaldoBanner.jpg");
 }
 
+#play {
+  background-image: url("./assets/bg.webp");
+}
+
 header {
   background-color: #f6f6f6;
 }
