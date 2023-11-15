@@ -36,7 +36,7 @@ const Map = () => {
         clockStarted={clockStarted}
         charactersFound={charactersFound}
       />
-      <div className="relative overflow-x-hidden">
+      <div className="relative overflow-hidden">
         <img
           onLoad={() => {
             setClockStarted(true);
@@ -45,8 +45,12 @@ const Map = () => {
           alt="Map image"
           className="w-screen"
           onClick={(e) => {
-            position.current.x = e.pageX;
-            position.current.y = e.pageY - 120;
+            position.current.x =
+              e.pageX / e.currentTarget.getBoundingClientRect().width;
+            position.current.y =
+              (e.pageY - 120) / e.currentTarget.getBoundingClientRect().height;
+            console.log(position.current.x, position.current.y);
+
             clicked == false ? setClicked(true) : setClicked(false);
           }}
         />
