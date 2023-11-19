@@ -25,3 +25,4 @@
 
 layout.txt
 .env
+server/populatedb.js
