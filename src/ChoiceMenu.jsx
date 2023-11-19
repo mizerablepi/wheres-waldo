@@ -6,23 +6,29 @@ const ChoiceMenu = ({
   characterList,
   setParentClicked,
   setCharactersFound,
+  map,
+  setScore,
 }) => {
   const tooRight = window.innerWidth - mouseposition.x < 120;
   const [clicked, setClicked] = useState(false);
   useEffect(() => {
+    const normalisedPosition = {
+      x: mouseposition.xNormalised,
+      y: mouseposition.yNormalised,
+    };
     if (clicked) {
-      checkCoords(mouseposition, clicked).then((res) => {
-        if (res == true) {
+      checkCoords(map, normalisedPosition, clicked).then((res) => {
+        if (res.result == true) {
           console.log("CORRECT");
           setCharactersFound((count) => count + 1);
           setParentClicked(false);
-        } else if (res == "fin") {
+        } else if (res.result == "fin") {
           console.log("THE END!");
+          setScore(res.time);
           setCharactersFound((count) => count + 1);
           setParentClicked(false);
         } else {
           console.log("WRONG!!");
-          setCharactersFound(2);
           setParentClicked(false);
         }
       });
