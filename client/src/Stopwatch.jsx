@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { sendStartSignal } from "./utility";
 
-const Stopwatch = ({ clockStarted, charactersFound }) => {
+const Stopwatch = ({ clockStarted, charactersFound, numberOfCharacters }) => {
   const [time, setTime] = useState(0);
   let timer = useRef();
   useEffect(() => {
@@ -16,12 +16,15 @@ const Stopwatch = ({ clockStarted, charactersFound }) => {
     };
   }, [clockStarted]);
 
-  if (charactersFound == 3) {
+  if (charactersFound == numberOfCharacters) {
     clearInterval(timer.current);
+    if (time > 0) {
+      setTime(0);
+    }
   }
 
   return (
-    <div className="bg-black/80 text-white font-bold px-4 py-2 sticky top-0 flex justify-between">
+    <div className="bg-black/80 text-white font-bold px-4 py-2 sticky top-0 flex justify-between z-10">
       <div>
         Time Elapsed:{" "}
         <span className="ml-2">
