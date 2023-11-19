@@ -28,14 +28,25 @@ const Leaderboard = () => {
             <tbody>
               {leaderboard.map((user, index) => {
                 return (
-                  <tr key={user.id} className="">
-                    <td className="border-r-2 px-2 text-center">{index}</td>
+                  <tr key={user._id}>
+                    <td className="border-r-2 px-2 text-center">{index + 1}</td>
                     <td className="border-r-2 px-2 py-1 text-center">
                       {user.username}
                     </td>
-                    <td className="border-r-2 px-2 text-center">{user.time}</td>
+                    <td className="border-r-2 px-2 text-center">
+                      {Math.floor((user.time / 6000) % 60)
+                        .toString()
+                        .padStart(2, "0")}
+                      :
+                      {Math.floor((user.time / 100) % 60)
+                        .toString()
+                        .padStart(2, "0")}
+                      :{(user.time % 100).toString().padStart(2, "0")}
+                    </td>
                     <td className="border-r-2 px-2 text-center">{user.map}</td>
-                    <td className="px-2 text-center">{user.date}</td>
+                    <td className="px-2 text-center">
+                      {new Date(user.date).toDateString()}
+                    </td>
                   </tr>
                 );
               })}
