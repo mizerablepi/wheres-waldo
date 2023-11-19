@@ -1,16 +1,21 @@
-/* eslint-disable no-undef */
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
+const session = require("express-session");
 require("dotenv").config();
+
+const mongoose = require("mongoose");
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(process.env.URI);
+}
 
 const indexRouter = require("./routes/index");
 
 const app = express();
-
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -18,7 +23,22 @@ app.set("view engine", "pug");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      callback(null, origin);
+    },
+    credentials: true,
+  })
+);
+app.use(
+  session({
+    secret: process.env.sessionSecret,
+    name: "id",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
