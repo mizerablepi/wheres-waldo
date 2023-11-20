@@ -1,6 +1,6 @@
 # Where's Waldo
 
-A full-stack application which lets you play the classic game of "Where's Wlado".
+A full-stack application which lets you play the classic game of "Where's Waldo".
 
 The Frontend is made with React.js and the backend is made with Express.js. The Project uses server as an api for the React SPA, handling CORS, Session, Validation, And basic CRUD operations using MondoDB as the Database.
 
