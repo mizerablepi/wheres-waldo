@@ -35,12 +35,15 @@ const Map = () => {
   return (
     list[0] != "Loading data..." && (
       <div>
-        <UserModal score={score} />
+        <UserModal score={score} name={name} />
         <Stopwatch
           clockStarted={clockStarted}
           charactersFound={charactersFound}
           numberOfCharacters={list.length}
+          list={list}
+          map={name}
         />
+
         <div className="relative overflow-hidden">
           <img
             onLoad={() => {
@@ -53,11 +56,11 @@ const Map = () => {
               position.current.xNormalised =
                 e.pageX / e.currentTarget.getBoundingClientRect().width;
               position.current.yNormalised =
-                (e.pageY - 120) /
+                (e.pageY - 136) /
                 e.currentTarget.getBoundingClientRect().height;
 
               position.current.x = e.pageX;
-              position.current.y = e.pageY - 120;
+              position.current.y = e.pageY - 136;
 
               clicked == false ? setClicked(true) : setClicked(false);
             }}
