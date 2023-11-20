@@ -12,7 +12,7 @@ exports.getCharacterList = asyncHandler(async (req, res) => {
 });
 
 exports.getLeaderboard = asyncHandler(async (req, res) => {
-  const scores = await Scores.find().sort({ time: 1 }).limit(3).exec();
+  const scores = await Scores.find().sort({ time: 1 }).limit(5).exec();
   console.log(req.session.id);
   res.json(scores);
 });
@@ -25,7 +25,7 @@ exports.checkCoords = asyncHandler(async (req, res) => {
   const chosenCharacter = map.characters.find(
     (character) => character.name == req.body.characterName
   );
-  let result;
+  let result = false;
 
   if (
     req.body.coords.x + 0.05 > chosenCharacter.minX &&
@@ -34,16 +34,22 @@ exports.checkCoords = asyncHandler(async (req, res) => {
     req.body.coords.y - 0.05 < chosenCharacter.maxY
   ) {
     result = true;
-    console.log(req.session.remainingCharacters);
-    req.session.remainingCharacters.splice(
-      req.session.remainingCharacters.indexOf(req.body.characterName),
-      1
+    const index = req.session.remainingCharacters.indexOf(
+      req.body.characterName
     );
+    if (index == -1) {
+      res.json({ message: "already found" });
+      res.end();
+    }
+
+    req.session.remainingCharacters.splice(index, 1);
     if (req.session.remainingCharacters.length === 0) {
       const timeTaken = Date.now() - req.session.startTime;
       req.session.timeTaken = timeTaken;
 
       res.json({ result: "fin", time: timeTaken });
+    } else {
+      res.json({ result });
     }
   } else {
     res.json({ result });
@@ -52,7 +58,6 @@ exports.checkCoords = asyncHandler(async (req, res) => {
 
 exports.startTime = (req, res) => {
   req.session.startTime = Date.now();
-  console.log("START TIME SET TO >>>>", req.session.startTime);
   res.json({ cookie: req.sessionID });
 };
 
@@ -67,7 +72,7 @@ exports.addScore = asyncHandler(async (req, res) => {
     date: new Date(),
   });
 
-  if (!mapNames.includes(req.params.map)) {
+  if (!mapNames.includes(req.params.map) || req.body.username.length > 20) {
     res.status = 400;
     res.send("error");
     res.end();
