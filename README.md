@@ -9,4 +9,4 @@ The Frontend is made with React.js and the backend is made with Express.js. The 
 1. Clone the repository.
 2. run `npm install` in client and server directory seperately.
 3. run `npm run dev` in client and server directory seperately.
-4. Open the client application in your breowser (By default it will be on [http://localhost:5173])
+4. Open the client application in your breowser (By default it will be on [http://localhost:5173](http://localhost:5173))
