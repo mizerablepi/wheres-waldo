@@ -34,14 +34,17 @@ const Leaderboard = () => {
                       {user.username}
                     </td>
                     <td className="border-r-2 px-2 text-center">
-                      {Math.floor((user.time / 6000) % 60)
+                      {Math.floor((user.time / 60000) % 60)
                         .toString()
                         .padStart(2, "0")}
                       :
-                      {Math.floor((user.time / 100) % 60)
+                      {Math.floor((user.time / 1000) % 60)
                         .toString()
                         .padStart(2, "0")}
-                      :{(user.time % 100).toString().padStart(2, "0")}
+                      :
+                      {Math.round((user.time % 1000) / 10)
+                        .toString()
+                        .padStart(2, "0")}
                     </td>
                     <td className="border-r-2 px-2 text-center">{user.map}</td>
                     <td className="px-2 text-center">
