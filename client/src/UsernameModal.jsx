@@ -1,4 +1,4 @@
-function UserModal({ score }) {
+function UserModal({ score, name }) {
   return (
     <div
       className={`fixed w-screen h-screen flex flex-col justify-center items-center z-20 top-0 bg-black/50 ${
@@ -28,6 +28,7 @@ function UserModal({ score }) {
           type="text"
           required
           minLength={1}
+          maxLength={20}
           placeholder="TEST"
           name="username"
           className="p-2 border-red-600 border"
