@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { sendStartSignal } from "./utility";
 
-const Stopwatch = ({ clockStarted, charactersFound, numberOfCharacters }) => {
+const Stopwatch = ({
+  clockStarted,
+  charactersFound,
+  numberOfCharacters,
+  list,
+  map,
+}) => {
   const [time, setTime] = useState(0);
   let timer = useRef();
   useEffect(() => {
@@ -37,6 +43,18 @@ const Stopwatch = ({ clockStarted, charactersFound, numberOfCharacters }) => {
             .padStart(2, "0")}
           :{(time % 100).toString().padStart(2, "0")}
         </span>
+      </div>
+      <div className="flex gap-4">
+        {list.map((character) => {
+          return (
+            <img
+              src={`http://localhost:3000/images/${map}/${character}.png`}
+              alt="character image"
+              key={character}
+              className="w-8 h-10"
+            />
+          );
+        })}
       </div>
       <div>Characters Found: {charactersFound}/3</div>
     </div>
