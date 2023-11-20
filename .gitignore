@@ -26,3 +26,4 @@
 layout.txt
 .env
 server/populatedb.js
+client/src/test.jsx
