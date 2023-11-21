@@ -29,7 +29,7 @@ function UserModal({ score, name }) {
           required
           minLength={1}
           maxLength={20}
-          placeholder="TEST"
+          placeholder="Username"
           name="username"
           className="p-2 border-red-600 border"
         />
