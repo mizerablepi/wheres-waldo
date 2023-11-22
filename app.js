@@ -37,11 +37,6 @@ app.use(
     name: "id",
     resave: false,
     saveUninitialized: true,
-    secure: true,
-    cookie: {
-      sameSite: "none", // THIS is the config you are looking for.
-      secure: true,
-    },
   })
 );
 app.use(cookieParser());
