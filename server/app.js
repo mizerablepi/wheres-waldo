@@ -38,11 +38,9 @@ app.use(
     resave: false,
     saveUninitialized: true,
     secure: true,
-    httpOnly: true,
     cookie: {
       sameSite: "none", // THIS is the config you are looking for.
       secure: true,
-      httpOnly: true,
     },
   })
 );
