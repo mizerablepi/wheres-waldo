@@ -15,7 +15,7 @@ exports.getLeaderboard = asyncHandler(async (req, res) => {
   const scores = await Scores.find().sort({ time: 1 }).limit(5).exec();
   console.log(req.session.id);
   res.cookie("name", "slimshady", {
-    sameSite: "None",
+    sameSite: "none",
     secure: true,
   });
   res.json(scores);
