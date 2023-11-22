@@ -38,6 +38,9 @@ app.use(
     resave: false,
     saveUninitialized: true,
     secure: true,
+    cookie: {
+      sameSite: "strict", // THIS is the config you are looking for.
+    },
   })
 );
 app.use(cookieParser());
