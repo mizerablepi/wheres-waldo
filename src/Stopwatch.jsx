@@ -8,6 +8,7 @@ const Stopwatch = ({
   list,
   map,
 }) => {
+  const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/";
   const [time, setTime] = useState(0);
   let timer = useRef();
   useEffect(() => {
@@ -48,7 +49,7 @@ const Stopwatch = ({
         {list.map((character) => {
           return (
             <img
-              src={`http://localhost:3000/images/${map}/${character}.png`}
+              src={serverUrl + `images/${map}/${character}.png`}
               alt="character image"
               key={character}
               className="w-8 h-10"
