@@ -2,7 +2,9 @@
 const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/";
 
 export async function getLeaderboard() {
-  const res = await fetch(serverUrl + `leaderboard`);
+  const res = await fetch(
+    "https://wheres-waldo-backend-kemp.onrender.com/leaderboard"
+  );
   const scores = await res.json();
   return scores;
 }
