@@ -39,7 +39,7 @@ app.use(
     saveUninitialized: true,
     secure: true,
     cookie: {
-      sameSite: "strict", // THIS is the config you are looking for.
+      sameSite: "none", // THIS is the config you are looking for.
     },
   })
 );
