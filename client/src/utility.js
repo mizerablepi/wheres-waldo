@@ -1,9 +1,13 @@
 /* eslint-disable no-unused-vars */
-const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/";
+const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/"; //"http://localhost:3000/"; //
 
 export async function getLeaderboard() {
   const res = await fetch(
-    "https://wheres-waldo-backend-kemp.onrender.com/leaderboard"
+    "https://wheres-waldo-backend-kemp.onrender.com/leaderboard",
+    {
+      credentials: "include",
+      mode: "cors",
+    }
   );
   const scores = await res.json();
   return scores;
