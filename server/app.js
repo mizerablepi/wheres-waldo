@@ -37,6 +37,7 @@ app.use(
     name: "id",
     resave: false,
     saveUninitialized: true,
+    secure: true,
   })
 );
 app.use(cookieParser());
