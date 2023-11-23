@@ -46,6 +46,9 @@ app.use("/api", indexRouter);
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
+app.use("/*", (req, res) => {
+  res.redirect("/");
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

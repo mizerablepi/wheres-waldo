@@ -40,13 +40,6 @@ function App() {
             </button>
           </Link>
         </div>
-        <div>
-          <Link to={"login"}>
-            <button className="px-2 py-1 m-1 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">
-              Log In
-            </button>
-          </Link>
-        </div>
       </header>
       <Outlet />
     </>

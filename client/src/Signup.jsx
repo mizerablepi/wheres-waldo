@@ -4,7 +4,11 @@ const Signup = () => {
   return (
     <div className="flex flex-col items-center p-4">
       <h2 className="font-bold text-2xl">Create your account: </h2>
-      <form action="#" method="post" className="flex flex-col w-[30rem] mt-8">
+      <form
+        action="http://localhost:3000/api/signup" //"https://wheres-waldo-backend-kemp.onrender.com/api/signup"
+        method="post"
+        className="flex flex-col w-[30rem] mt-8"
+      >
         <label htmlFor="username">Username: </label>
         <input
           type="text"

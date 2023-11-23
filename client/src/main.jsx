@@ -5,8 +5,8 @@ import Home from "./Home.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Game from "./Game.jsx";
-import Login from "./Login.jsx";
-import Signup from "./Signup.jsx";
+// import Login from "./Login.jsx";
+// import Signup from "./Signup.jsx";
 import Leaderboard from "./Leaderboard.jsx";
 import Map from "./Map.jsx";
 
@@ -31,14 +31,14 @@ const router = createBrowserRouter([
         path: "leaderboard",
         element: <Leaderboard />,
       },
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "signup",
-        element: <Signup />,
-      },
+      // {
+      //   path: "login",
+      //   element: <Login />,
+      // },
+      // {
+      //   path: "signup",
+      //   element: <Signup />,
+      // },
     ],
     // errorElement: <Errorpage/>
   },

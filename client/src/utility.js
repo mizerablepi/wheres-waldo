@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/api/"; //"http://localhost:3000/"; //
+const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/api"; // "http://localhost:3000/api"; //
 
 export async function getLeaderboard() {
   const res = await fetch(serverUrl + "/leaderboard", {
@@ -11,7 +11,7 @@ export async function getLeaderboard() {
 }
 
 export async function getCharacterList(map) {
-  const res = await fetch(serverUrl + `play/${map}`, {
+  const res = await fetch(serverUrl + `/play/${map}`, {
     credentials: "include",
     mode: "cors",
   });
@@ -20,7 +20,7 @@ export async function getCharacterList(map) {
 }
 
 export function sendStartSignal() {
-  const res = fetch(serverUrl + `startTime`, {
+  const res = fetch(serverUrl + `/startTime`, {
     credentials: "include",
     mode: "cors",
   });
@@ -28,7 +28,7 @@ export function sendStartSignal() {
 }
 
 export async function checkCoords(map, coords, choice) {
-  const res = await fetch(serverUrl + `play/${map}/check`, {
+  const res = await fetch(serverUrl + `/play/${map}/check`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
