@@ -1,6 +1,8 @@
 const asyncHandler = require("express-async-handler");
 const Map = require("../models/Map");
 const Scores = require("../models/Scores");
+// const { body, validationResult } = require("express-validator");
+// const Account = require("../models/Account");
 
 exports.getCharacterList = asyncHandler(async (req, res) => {
   const map = await Map.findOne({ name: req.params.map })
@@ -14,6 +16,7 @@ exports.getCharacterList = asyncHandler(async (req, res) => {
 exports.getLeaderboard = asyncHandler(async (req, res) => {
   const scores = await Scores.find().sort({ time: 1 }).limit(5).exec();
   console.log(req.session.id);
+  console.log(req.session.user);
   res.json(scores);
 });
 
@@ -81,3 +84,57 @@ exports.addScore = asyncHandler(async (req, res) => {
     res.redirect("/");
   }
 });
+
+// exports.signup = [
+//   body("username", "Enter a proper username")
+//     .trim()
+//     .isLength({ min: 1 })
+//     .escape(),
+//   body("password", "Enter a proper password")
+//     .trim()
+//     .isLength({ min: 1 })
+//     .escape(),
+//   body("password-confirm", "Enter a proper password")
+//     .trim()
+//     .isLength({ min: 1 })
+//     .escape(),
+//   asyncHandler(async (req, res) => {
+//     if (!validationResult(req).isEmpty()) {
+//       res.send("ERROR");
+//       res.end();
+//     }
+//     if (req.body.password != req.body["password-confirm"]) {
+//       res.send("password dont match");
+//       res.end();
+//     }
+//     const account = new Account({
+//       username: req.body.username,
+//       password: req.body.password,
+//     });
+//     await account.save();
+//     res.redirect("/");
+//   }),
+// ];
+
+// exports.login = [
+//   body("username", "Enter a proper username")
+//     .trim()
+//     .isLength({ min: 1 })
+//     .escape(),
+//   body("password", "Enter a proper password")
+//     .trim()
+//     .isLength({ min: 1 })
+//     .escape(),
+//   asyncHandler(async (req, res) => {
+//     const account = await Account.findOne({
+//       username: req.body.username,
+//     }).exec();
+//     if (!validationResult(req).isEmpty() || account == null) {
+//       res.send("ERROR");
+//       res.end();
+//     } else {
+//       req.session.user = account.username;
+//       res.redirect("http://localhost:5173");
+//     }
+//   }),
+// ];
