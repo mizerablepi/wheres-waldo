@@ -8,7 +8,7 @@ const Stopwatch = ({
   list,
   map,
 }) => {
-  const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/api"; //"http://localhost:3000/"; //
+  const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/"; //"http://localhost:3000/"; //
   const [time, setTime] = useState(0);
   let timer = useRef();
   useEffect(() => {
