@@ -4,7 +4,9 @@ A full-stack application which lets you play the classic game of "Where's Waldo"
 
 The Frontend is made with React.js and the backend is made with Express.js. The Project uses server as an api for the React SPA, handling CORS, Session, Validation, And basic CRUD operations using MondoDB as the Database.
 
-## How To Run The Project
+Live Preview => [https://wheres-waldo-backend-kemp.onrender.com/](https://wheres-waldo-backend-kemp.onrender.com/)
+
+## How To Run The Project locally
 
 1. Clone the repository.
 2. run `npm install` in client and server directory seperately.
