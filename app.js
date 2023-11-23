@@ -37,11 +37,6 @@ app.use(
     name: "id",
     resave: false,
     saveUninitialized: true,
-    sameSite: "none",
-    cookie: {
-      secure: true,
-      sameSite: "none",
-    },
   })
 );
 app.use(cookieParser());
