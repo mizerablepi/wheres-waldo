@@ -14,9 +14,6 @@ exports.getCharacterList = asyncHandler(async (req, res) => {
 exports.getLeaderboard = asyncHandler(async (req, res) => {
   const scores = await Scores.find().sort({ time: 1 }).limit(5).exec();
   console.log(req.session.id);
-  res.cookie("id", "notqwerty", {
-    secure: true,
-  });
   res.json(scores);
 });
 
