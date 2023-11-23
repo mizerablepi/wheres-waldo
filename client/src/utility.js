@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/"; //"http://localhost:3000/"; //
+const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/api/"; //"http://localhost:3000/"; //
 
 export async function getLeaderboard() {
   const res = await fetch(
