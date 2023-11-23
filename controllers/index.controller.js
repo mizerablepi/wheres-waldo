@@ -78,6 +78,6 @@ exports.addScore = asyncHandler(async (req, res) => {
     res.end();
   } else {
     await score.save();
-    res.redirect("http://localhost:5173/");
+    res.redirect("/");
   }
 });
