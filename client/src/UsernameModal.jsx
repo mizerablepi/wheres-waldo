@@ -1,4 +1,5 @@
 function UserModal({ score, name }) {
+  const serverUrl = "https://wheres-waldo-backend-kemp.onrender.com/api/";
   return (
     <div
       className={`fixed w-screen h-screen flex flex-col justify-center items-center z-20 top-0 bg-black/50 ${
@@ -20,7 +21,7 @@ function UserModal({ score, name }) {
           .padStart(2, "0")}
       </div>
       <form
-        action={"http://localhost:3000/submit/" + name}
+        action={serverUrl + "submit/" + name}
         className="flex flex-col mt-4"
         method="post"
       >
